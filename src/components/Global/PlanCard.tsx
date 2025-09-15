@@ -6,15 +6,12 @@ import Link from "next/link";
 
 export const PlanCard = ({ plan }: PlanCardProps) => {
   return (
-    <div className="group relative animate-fadeInUp">
+    <div className="group relative">
       <div
         className={`
  relative p-6 rounded-2xl border border-gray-200/50
  bg-gradient-to-br ${getCardGradient(plan.type)}
  backdrop-blur-sm
- hover:scale-[1.02] hover:shadow-glow
- transition-all duration-300 ease-out
- hover:-translate-y-1
  `}
       >
         {/* Plan Type Badge */}
@@ -26,7 +23,7 @@ export const PlanCard = ({ plan }: PlanCardProps) => {
         </div>
 
         {/* Plan Name */}
-        <h3 className="text-xl font-bold text-[#184b8c] mb-2 group-hover:text-[#184b8c]/80 transition-colors">
+        <h3 className="text-xl font-bold text-[#184b8c] mb-2 group-hover:text-[#184b8c]/80">
           {plan.name}
         </h3>
 
@@ -52,17 +49,14 @@ export const PlanCard = ({ plan }: PlanCardProps) => {
  block w-full py-3 px-4 rounded-xl text-center font-semibold
  bg-[#184b8c] text-white
  hover:bg-[#184b8c]/90
- hover:scale-105 active:scale-95
- transition-all duration-200 ease-out
- hover:shadow-lg
- group-hover:animate-pulse-glow
+ 
  `}
         >
           Buy Now
         </Link>
 
         {/* Hover Glow Effect */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#184b8c]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#184b8c]/5 to-transparent pointer-events-none" />
       </div>
     </div>
   );

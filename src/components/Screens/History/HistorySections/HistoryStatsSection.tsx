@@ -6,10 +6,7 @@ export const HistoryStatsSection = ({
   purchases: IPurchase[];
 }) => {
   return (
-    <div
-      className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fadeInUp"
-      style={{ animationDelay: "200ms" }}
-    >
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       <div className="bg-gradient-to-br from-[#184b8c]/5 to-[#184b8c]/10 rounded-2xl p-6 border border-gray-200/50">
         <div className="text-2xl font-bold text-[#184b8c]">
           {purchases.length}

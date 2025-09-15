@@ -18,10 +18,7 @@ export const PaymentScreenIndex = () => {
 
             {/* Payment Form */}
             <PaymentForm />
-            <div
-              className="animate-slideInLeft rounded-2xl"
-              style={{ animationDelay: "200ms" }}
-            >
+            <div className="rounded-2xl">
               <div className="mt-6 p-4 bg-[#184b8c]/5 rounded-xl">
                 <p className="text-xs text-[#184b8c]/60 text-center">
                   🔒 Secure payment • Your voucher will be sent instantly to the

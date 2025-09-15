@@ -4,7 +4,7 @@ import React from 'react'
 export const HistoryEmptyState = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center p-8 animate-fadeInUp max-w-md">
+      <div className="text-center p-8 max-w-md">
         <div className="w-20 h-20 bg-[#184b8c]/10 rounded-full flex items-center justify-center mx-auto mb-6">
           <span className="text-3xl">📋</span>
         </div>
@@ -17,7 +17,7 @@ export const HistoryEmptyState = () => {
         </p>
         <Link
           href="/plans"
-          className="inline-block px-6 py-3 bg-[#184b8c] text-white rounded-xl font-semibold hover:scale-105 active:scale-95 transition-transform"
+          className="inline-block px-6 py-3 bg-[#184b8c] text-white rounded-xl font-semibold"
         >
           Browse Plans
         </Link>

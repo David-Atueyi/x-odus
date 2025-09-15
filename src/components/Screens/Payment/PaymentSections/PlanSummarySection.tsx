@@ -1,6 +1,6 @@
 export const PlanSummarySection = () => {
   return (
-    <div className="animate-slideInLeft rounded-2xl">
+    <div className="rounded-2xl">
       <div className="bg-gradient-to-br from-[#184b8c]/5 to-[#184b8c]/10 rounded-2xl p-6 border border-gray-200/50">
         <h2 className="text-xl font-semibold text-[#184b8c] mb-4">
           Plan Summary

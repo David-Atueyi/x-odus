@@ -6,11 +6,11 @@ export const MobileMenuButton = () => {
     <div className="md:hidden flex items-center gap-3">
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="p-2 rounded-lg text-[#184b8c] hover:bg-[#184b8c]/10 transition-colors"
+        className="p-2 rounded-lg text-[#184b8c]"
         aria-label="Toggle mobile menu"
       >
         <svg
-          className={`w-6 h-6 transition-transform duration-200 ${
+          className={`w-6 h-6 ${
             isMobileMenuOpen ? "rotate-90" : ""
           }`}
           fill="none"

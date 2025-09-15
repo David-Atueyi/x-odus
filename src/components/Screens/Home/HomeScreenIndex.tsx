@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const HomeScreenIndex = () => {
   return (
-    <section className="py-16 text-center animate-fadeInUp">
+    <section className="py-16 text-center">
       <h1 className="text-4xl md:text-5xl font-extrabold">
         Welcome to <span className="text-[#184b8c]">X-odus</span>
       </h1>
@@ -14,13 +14,13 @@ export const HomeScreenIndex = () => {
       <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           href="/plans"
-          className="px-6 py-3 rounded-xl bg-[#184b8c] text-white hover:scale-105 active:scale-95 transition-transform"
+          className="px-6 py-3 rounded-xl bg-[#184b8c] text-white"
         >
           View Plans
         </Link>
         <Link
           href="/signin"
-          className="px-6 py-3 rounded-xl border border-[#184b8c]/30 hover:scale-105 active:scale-95 transition-transform"
+          className="px-6 py-3 rounded-xl border border-[#184b8c]/30"
         >
           Sign In
         </Link>

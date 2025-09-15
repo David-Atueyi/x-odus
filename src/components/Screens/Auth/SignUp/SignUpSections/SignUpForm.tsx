@@ -47,11 +47,8 @@ export const SignUpForm = () => {
         className={`
 w-full py-3 px-4 rounded-xl font-semibold text-white
 bg-[#184b8c]
-hover:bg-[#184b8c]/90
-hover:scale-105 active:scale-95
-transition-all duration-200
 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
-${isLoading ? "animate-pulse" : ""}
+ 
 `}
       >
         {isLoading ? (

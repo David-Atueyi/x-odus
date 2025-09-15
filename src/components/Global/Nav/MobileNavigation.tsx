@@ -12,13 +12,13 @@ export const MobileNavigation = ({
 }) => {
   const { setIsMobileMenuOpen } = useIsMobileMenuOpenStore();
   return (
-    <div className="md:hidden mt-4 pb-4 border-t border-[#184b8c]/10 animate-fadeInDown">
+    <div className="md:hidden mt-4 pb-4 border-t border-[#184b8c]/10">
       <div className="flex flex-col gap-3 pt-4">
         {navLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="text-[#184b8c] hover:text-[#184b8c]/70 transition-colors font-medium py-2"
+            className="text-[#184b8c] font-medium py-2"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             {link.label}
@@ -35,7 +35,7 @@ export const MobileNavigation = ({
                 logout();
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full text-left px-3 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm font-medium transition-colors"
+              className="w-full text-left px-3 py-2 rounded-lg bg-red-500 text-white text-sm font-medium"
             >
               Logout
             </button>

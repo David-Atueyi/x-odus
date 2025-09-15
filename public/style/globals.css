@@ -23,9 +23,7 @@
 }
 
 /* Smooth transitions for theme changes */
-* {
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
+/* Removed global transitions to disable implicit animations */
 
 /* Focus styles */
 button:focus,
@@ -35,16 +33,4 @@ textarea:focus {
   --tw-ring-color: rgba(24, 75, 140, 0.2);
 }
 
-/* Custom animations */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(24, 75, 140, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(24, 75, 140, 0.5);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite;
-}
+/* Removed custom animations */

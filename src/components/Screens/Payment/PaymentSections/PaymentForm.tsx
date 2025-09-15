@@ -20,9 +20,7 @@ export const PaymentForm = () => {
         <button
           onClick={() => router.push("/confirm-payment")}
           disabled={isLoading}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg bg-[#184b8c] text-white hover:bg-[#184b8c]/90 hover:scale-105 active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${
-            isLoading ? "animate-pulse" : ""
-          }`}
+          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg bg-[#184b8c] text-white disabled:opacity-50 disabled:cursor-not-allowed`}
         >
           {isLoading ? (
             <span className="flex items-center justify-center gap-3">
@@ -37,7 +35,7 @@ export const PaymentForm = () => {
         <button
           type="button"
           onClick={() => router.push("/plans")}
-          className="w-full py-3 px-4 rounded-xl border border-[#184b8c]/30 text-[#184b8c] hover:bg-[#184b8c]/5 transition-colors"
+          className="w-full py-3 px-4 rounded-xl border border-[#184b8c]/30 text-[#184b8c]"
           disabled={isLoading}
         >
           Back to Plans

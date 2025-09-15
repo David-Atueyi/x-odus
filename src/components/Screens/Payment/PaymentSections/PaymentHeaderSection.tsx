@@ -2,7 +2,7 @@ import React from 'react'
 
 export const PaymentHeaderSection = () => {
   return (
-    <div className="text-center mb-8 animate-fadeInUp">
+    <div className="text-center mb-8">
       <h1 className="text-3xl font-bold text-[#184b8c] mb-2">
         Complete Purchase
       </h1>

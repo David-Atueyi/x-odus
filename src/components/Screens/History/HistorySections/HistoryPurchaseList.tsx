@@ -10,14 +10,12 @@ export const HistoryPurchaseList = ({
 }) => {
   return (
     <div
-      className="space-y-4 animate-fadeInUp"
-      style={{ animationDelay: "400ms" }}
+      className="space-y-4"
     >
       {purchases.map((purchase, index) => (
         <div
           key={purchase.id}
-          className="bg-white rounded-2xl p-6 border border-gray-200/50 hover:shadow-lg transition-all duration-300"
-          style={{ animationDelay: `${600 + index * 100}ms` }}
+          className="bg-white rounded-2xl p-6 border border-gray-200/50"
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Purchase Info */}

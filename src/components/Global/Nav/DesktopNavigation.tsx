@@ -15,7 +15,7 @@ export const DesktopNavigation = ({
         <Link
           key={link.href}
           href={link.href}
-          className="text-[#184b8c] hover:text-[#184b8c]/70 transition-colors font-medium"
+          className="text-[#184b8c] font-medium"
         >
           {link.label}
         </Link>
@@ -26,7 +26,7 @@ export const DesktopNavigation = ({
           <span className="text-sm text-[#184b8c]/70">{userEmail}</span>
           <button
             onClick={logout}
-            className="px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm font-medium hover:scale-105 active:scale-95 transition-all duration-200"
+            className="px-3 py-1 rounded-lg bg-red-500 text-white text-sm font-medium"
           >
             Logout
           </button>
