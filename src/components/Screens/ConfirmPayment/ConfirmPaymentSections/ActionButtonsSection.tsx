@@ -1,22 +1,31 @@
+import { AnimatedButton } from "@/components/Global/AnimatedButton";
+import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 
 export const ActionButtonsSection = () => {
   const router = useRouter();
   return (
-    <div className="space-y-3">
-      <button
+    <motion.div
+      className="space-y-3"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+    >
+      <AnimatedButton
         onClick={() => router.push("/plans")}
-        className="w-full py-3 px-4 rounded-xl bg-[#184b8c] text-white font-semibold"
+        className="w-full"
+        variant="primary"
       >
         Buy Another Plan
-      </button>
+      </AnimatedButton>
 
-      <button
+      <AnimatedButton
         onClick={() => router.push("/")}
-        className="w-full py-3 px-4 rounded-xl border border-[#184b8c]/30 text-[#184b8c]"
+        className="w-full"
+        variant="secondary"
       >
         Back to Home
-      </button>
-    </div>
+      </AnimatedButton>
+    </motion.div>
   );
 };

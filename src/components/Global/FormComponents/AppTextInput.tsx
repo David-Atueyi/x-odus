@@ -15,6 +15,8 @@ export const AppTextInput = ({
   name,
   defaultValue,
   label,
+  keyboardType, // Extract to prevent passing to DOM
+  textContentType, // Extract to prevent passing to DOM
   ...props
 }: {
   placeholder: string;
@@ -28,6 +30,8 @@ export const AppTextInput = ({
   name?: string;
   defaultValue?: string;
   label?: string;
+  keyboardType?: string;
+  textContentType?: string;
   [key: string]: any;
 }) => {
   const { control: defaultController } = useFormManager();

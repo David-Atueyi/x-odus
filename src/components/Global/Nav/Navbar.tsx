@@ -1,17 +1,17 @@
 "use client";
 import { navLinks } from "@/base/dummyData/navLinks";
 import { useIsMobileMenuOpenStore } from "@/base/store/zustand/useIsMobileMenuOpenStore";
+import { AnimatePresence } from "motion/react";
 import { DesktopNavigation } from "./DesktopNavigation";
 import { Logo } from "./Logo";
 import { MobileMenuButton } from "./MobileMenuButton";
 import { MobileNavigation } from "./MobileNavigation";
 
 export const Navbar = () => {
-  const userEmail = "helloJohn@gmail.com"
-  const logout=()=>{
+  const userEmail = "helloJohn@gmail.com";
+  const logout = () => {
     console.log("hello");
-    
-  }
+  };
   const { isMobileMenuOpen } = useIsMobileMenuOpenStore();
 
   return (
@@ -33,13 +33,15 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <MobileNavigation
-            navLinks={navLinks}
-            userEmail={userEmail}
-            logout={logout}
-          />
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <MobileNavigation
+              navLinks={navLinks}
+              userEmail={userEmail}
+              logout={logout}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

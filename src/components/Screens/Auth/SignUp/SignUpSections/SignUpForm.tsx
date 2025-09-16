@@ -1,5 +1,6 @@
-import { useUserSignUp } from "@/base/hooks/auth/userSignUp/useUserSignUp";
+import { AnimatedButton } from "@/components/Global/AnimatedButton";
 import { AppTextInput } from "@/components/Global/FormComponents/AppTextInput";
+import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 
 export const SignUpForm = () => {
@@ -41,25 +42,25 @@ export const SignUpForm = () => {
           // error={String(errors.password_confirmation?.message ?? "")}
         ></AppTextInput>
       </div>
-      <button
+      <AnimatedButton
         onClick={() => router.push("/")}
         disabled={isLoading}
-        className={`
-w-full py-3 px-4 rounded-xl font-semibold text-white
-bg-[#184b8c]
-disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
- 
-`}
+        className="w-full"
+        variant="primary"
       >
         {isLoading ? (
           <span className="flex items-center justify-center gap-2">
-            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <motion.div
+              className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            />
             Creating Account...
           </span>
         ) : (
           "Create Account"
         )}
-      </button>
+      </AnimatedButton>
     </div>
   );
 };

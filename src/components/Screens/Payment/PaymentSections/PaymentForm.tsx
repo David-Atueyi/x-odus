@@ -1,4 +1,6 @@
+import { AnimatedButton } from "@/components/Global/AnimatedButton";
 import { AppTextInput } from "@/components/Global/FormComponents/AppTextInput";
+import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 
 export const PaymentForm = () => {
@@ -16,31 +18,41 @@ export const PaymentForm = () => {
         // control={control}
         // error={String(errors.email?.message ?? "")}
       ></AppTextInput>
-      <div className="space-y-4">
-        <button
+      <motion.div
+        className="space-y-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        <AnimatedButton
           onClick={() => router.push("/confirm-payment")}
           disabled={isLoading}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg bg-[#184b8c] text-white disabled:opacity-50 disabled:cursor-not-allowed`}
+          className="w-full py-4 text-lg"
+          variant="primary"
         >
           {isLoading ? (
             <span className="flex items-center justify-center gap-3">
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <motion.div
+                className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
               Processing Payment...
             </span>
           ) : (
             `Pay ₦500`
           )}
-        </button>
+        </AnimatedButton>
 
-        <button
-          type="button"
+        <AnimatedButton
           onClick={() => router.push("/plans")}
-          className="w-full py-3 px-4 rounded-xl border border-[#184b8c]/30 text-[#184b8c]"
           disabled={isLoading}
+          className="w-full"
+          variant="secondary"
         >
           Back to Plans
-        </button>
-      </div>
+        </AnimatedButton>
+      </motion.div>
     </div>
   );
 };
