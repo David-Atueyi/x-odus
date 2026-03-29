@@ -1,7 +1,7 @@
 export const PlansFooterSection = () => {
   return (
     <div
-      className="text-center mt-16"
+      className="text-center mt-24"
     >
       <div className="bg-gradient-to-r from-[#184b8c]/5 to-[#184b8c]/10 rounded-2xl p-8 max-w-2xl mx-auto">
         <h3 className="text-xl font-semibold text-[#184b8c] mb-2">

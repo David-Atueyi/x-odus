@@ -9,6 +9,17 @@ export const SignUpForm = () => {
   // const { control, userSignUp, errors } = useUserSignUp();
   return (
     <div className="space-y-6">
+        <div>
+        <AppTextInput
+          name="userName"
+          placeholder="Your user name address"
+          label="User Name"
+          keyboardType="text"
+          textInputClassName=""
+          // control={control}
+          // error={String(errors.userName?.message ?? "")}
+        ></AppTextInput>
+      </div>
       <div>
         <AppTextInput
           name="email"

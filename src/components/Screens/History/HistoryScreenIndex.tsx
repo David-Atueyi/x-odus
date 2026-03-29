@@ -43,7 +43,7 @@ export const HistoryScreenIndex = () => {
     <HistoryEmptyState />;
   }
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-8 px-5">
       {/* Header */}
       <HistoryHeaderSection />
       {/* Stats */}

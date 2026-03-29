@@ -23,7 +23,6 @@ export const SignUpFooter = () => {
           <li>• Secure access to all X-odus features</li>
           <li>• Protected purchase history and data</li>
           <li>• Personalized plan recommendations</li>
-          <li>• Account-based billing and support</li>
         </ul>
       </div>
     </>

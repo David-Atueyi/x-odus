@@ -13,7 +13,7 @@ export const PlansSection = ({
 }) => {
   return (
     <motion.section
-      className="mb-12"
+      // className="mb-12"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: delay / 1000 }}

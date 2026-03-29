@@ -1,17 +1,27 @@
 import { create } from "zustand";
 
-interface IIsMobileMenuOpenStore {
+interface INavMenuStore {
   isMobileMenuOpen: boolean;
-
-  setIsMobileMenuOpen: (isMobileMenuOpen: boolean) => void;
+  isProfileOpen: boolean;
+  openMobileMenu: () => void;
+  closeMobileMenu: () => void;
+  openProfile: () => void;
+  closeProfile: () => void;
 }
 
-export const useIsMobileMenuOpenStore = create<IIsMobileMenuOpenStore>(
-  (set) => ({
-    //
-    isMobileMenuOpen: false,
-    //
+export const useIsMobileMenuOpenStore = create<INavMenuStore>((set) => ({
+  isMobileMenuOpen: false,
+  isProfileOpen: false,
 
-    setIsMobileMenuOpen: (value) => set({ isMobileMenuOpen: value }),
-  })
-);
+  openMobileMenu: () =>
+    set({ isMobileMenuOpen: true, isProfileOpen: false }),
+
+  closeMobileMenu: () =>
+    set({ isMobileMenuOpen: false }),
+
+  openProfile: () =>
+    set({ isProfileOpen: true, isMobileMenuOpen: false }),
+
+  closeProfile: () =>
+    set({ isProfileOpen: false }),
+}));

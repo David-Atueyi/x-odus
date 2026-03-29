@@ -8,7 +8,7 @@ import Link from "next/link";
 export const PlanCard = ({ plan }: PlanCardProps) => {
   return (
     <motion.div
-      className="group relative"
+      className="group relative w-full min-w-[200px] max-w-[350px]"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}

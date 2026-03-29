@@ -1,84 +1,84 @@
+"use client";
 import { useIsMobileMenuOpenStore } from "@/base/store/zustand/useIsMobileMenuOpenStore";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { ComponentType } from "react";
 
 export const MobileNavigation = ({
   navLinks,
-  userEmail,
   logout,
 }: {
-  navLinks: { href: string; label: string }[];
-  userEmail: string | null;
+  navLinks: { href: string; label: string; icon: ComponentType }[];
   logout: () => void;
 }) => {
-  const { setIsMobileMenuOpen } = useIsMobileMenuOpenStore();
+  const { closeMobileMenu } = useIsMobileMenuOpenStore();
+
   return (
-    <motion.div
-      className="md:hidden mt-4 pb-4 border-t border-[#184b8c]/10"
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: "auto" }}
-      exit={{ opacity: 0, height: 0 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    >
       <motion.div
-        className="flex flex-col gap-3 pt-4"
+      className="md:hidden absolute top-full left-0 right-0 z-50 bg-white border-t border-[#184b8c]/10 flex flex-col justify-between shadow-lg"
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+    >
+      {/* Nav links with icons */}
+      <motion.div
         initial="hidden"
         animate="visible"
         variants={{
           hidden: { opacity: 0 },
           visible: {
             opacity: 1,
-            transition: {
-              delayChildren: 0.1,
-              staggerChildren: 0.05,
-            },
+            transition: { delayChildren: 0.1, staggerChildren: 0.05 },
           },
         }}
       >
-        {navLinks.map((link, index) => (
-          <motion.div
-            key={link.href}
-            variants={{
-              hidden: { opacity: 0, x: -20 },
-              visible: { opacity: 1, x: 0 },
-            }}
-            whileHover={{ x: 4 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Link
-              href={link.href}
-              className="text-[#184b8c] font-medium py-2 block transition-colors duration-200 hover:text-[#184b8c]/70"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          </motion.div>
-        ))}
-
-        {userEmail && (
-          <motion.div
-            className="pt-2 border-t border-[#184b8c]/10"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.3 }}
-          >
-            <div className="text-sm text-[#184b8c]/70 mb-2">
-              Signed in as: {userEmail}
-            </div>
-            <motion.button
-              onClick={() => {
-                logout();
-                setIsMobileMenuOpen(false);
+        {navLinks.map((link) => {
+          const IconComponent = link.icon;
+          return (
+            <motion.div
+              key={link.href}
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
               }}
-              className="w-full text-left px-3 py-2 rounded-lg bg-red-500 text-white text-sm font-medium"
-              whileHover={{ scale: 1.02, backgroundColor: "#dc2626" }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
             >
-              Logout
-            </motion.button>
-          </motion.div>
-        )}
+              <Link
+                href={link.href}
+                className="flex items-center gap-3 p-4 font-medium hover:bg-gray-100 transition-colors"
+                onClick={() => closeMobileMenu()}
+              >
+                <IconComponent />
+                {link.label}
+              </Link>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      {/* User profile + logout at the bottom */}
+      <motion.div
+        className="border-t border-black/10 mt-2"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+      >
+        <div className="flex gap-2 items-center p-4">
+          <div className="h-12 w-12 bg-yellow-200 rounded-full flex-shrink-0"></div>
+          <div>
+            <p className="font-bold text-lg">EA-dav</p>
+            <p className="truncate text-sm text-gray-500">atueyidavid2005@gmail.com</p>
+          </div>
+        </div>
+        <button
+          onClick={() => {
+            logout();
+            closeMobileMenu();
+          }}
+          className=" text-red-500 hover:underline border-t border-black/10 w-full text-left p-4"
+        >
+          Logout
+        </button>
       </motion.div>
     </motion.div>
   );
