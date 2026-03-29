@@ -7,7 +7,7 @@ export const HomeScreenIndex = () => {
   const router = useRouter();
   const [isConnecting, setIsConnecting] = useState(false);
 
-  const handleConnect = async (_voucher: string) => {
+  const handleConnect = async () => {
     setIsConnecting(true);
     await new Promise((r) => setTimeout(r, 1200));
     setIsConnecting(false);

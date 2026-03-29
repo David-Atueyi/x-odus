@@ -15,12 +15,14 @@ export const AppTextInput = ({
   name,
   defaultValue,
   label,
-  keyboardType, // Extract to prevent passing to DOM
-  textContentType, // Extract to prevent passing to DOM
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  keyboardType,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  textContentType,
   ...props
 }: {
   placeholder: string;
-  children?: any;
+  children?: React.ReactNode;
   className?: string;
   textInputClassName?: string;
   labelClassName?: string;
@@ -32,7 +34,7 @@ export const AppTextInput = ({
   label?: string;
   keyboardType?: string;
   textContentType?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) => {
   const { control: defaultController } = useFormManager();
 

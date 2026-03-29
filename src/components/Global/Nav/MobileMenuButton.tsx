@@ -2,11 +2,11 @@ import { useIsMobileMenuOpenStore } from "@/base/store/zustand/useIsMobileMenuOp
 import { motion } from "motion/react";
 
 export const MobileMenuButton = () => {
-  const { isMobileMenuOpen, setIsMobileMenuOpen } = useIsMobileMenuOpenStore();
+  const { isMobileMenuOpen, openMobileMenu, closeMobileMenu } = useIsMobileMenuOpenStore();
   return (
     <div className="md:hidden flex items-center gap-3">
       <motion.button
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        onClick={() => isMobileMenuOpen ? closeMobileMenu() : openMobileMenu()}
         className="p-2 rounded-lg text-[#184b8c]"
         aria-label="Toggle mobile menu"
         whileHover={{ scale: 1.1, backgroundColor: "rgba(24, 75, 140, 0.1)" }}

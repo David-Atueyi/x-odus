@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
-export const useFormManager = ({ validator }: Yup.InferType<any> = {}) => {
+export const useFormManager = ({ validator }: { validator?: Yup.AnyObjectSchema } = {}) => {
   const resolver = validator ? yupResolver(validator) : undefined;
   const methods = useForm({
     shouldUseNativeValidation: false,

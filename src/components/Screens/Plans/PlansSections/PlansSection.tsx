@@ -41,7 +41,7 @@ export const PlansSection = ({
           },
         }}
       >
-        {planList.map((plan, index) => (
+        {planList.map((plan) => (
           <motion.div
             key={plan.id}
             className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] min-w-[280px] max-w-[400px]"

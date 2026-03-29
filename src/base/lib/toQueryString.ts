@@ -1,7 +1,6 @@
-export function toQueryString(params: string | Record<string, any>): string {
+export function toQueryString(params: string | Record<string, string>): string {
   if (typeof params === "string") {
-    // Convert query string to an object
-    const obj: Record<string, any> = {};
+    const obj: Record<string, string> = {};
     const pairs = params.split("&");
     pairs.forEach((pair) => {
       const [key, value] = pair.split("=");
@@ -10,12 +9,7 @@ export function toQueryString(params: string | Record<string, any>): string {
     params = obj;
   }
 
-  // Assuming params is now an object
-  const queryString = Object.keys(params)
-    .map(
-      (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-    )
+  return Object.keys(params)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent((params as Record<string, string>)[key])}`)
     .join("&");
-
-  return queryString;
 }

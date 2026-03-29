@@ -1,10 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
-// import axios from "axios";
 import { SubmitHandler } from "react-hook-form";
 import { useFormManager } from "../../formManager/useFormManager";
 import { userSignInFormValidator } from "./userSignInFormValidator";
 import { useRouter } from "next/router";
 import { toast } from "sonner";
+
+type FormData = Record<string, unknown>;
 
 export const useUserSignIn = () => {
   const {
@@ -16,30 +17,25 @@ export const useUserSignIn = () => {
   });
 
   const { push } = useRouter();
-  // const { authenticateUser } = useAuthHelper();
 
   const signInMutation = useMutation({
-    mutationFn: async (
-      formData: Record<string, any>
-    ): Promise<any> => {
-      // const response = await axios.post(API_ROUTES.auth.logIn, formData);
-      // return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    mutationFn: async (_formData: FormData): Promise<void> => {
+      // const response = await axios.post(API_ROUTES.auth.logIn, _formData);
     },
-    onSuccess: (data:any) => {
-      // authenticateUser(data, true);
+    onSuccess: () => {
       push("/");
     },
-    onError: (error: any) => {
+    onError: (error: Error & { response?: { data?: { message?: string } } }) => {
       toast.error(
         error?.response?.data?.message ??
           error?.message ??
           "Something went wrong"
       );
-    
     },
   });
 
-  const handleSignin: SubmitHandler<Record<string, any>> = (formData) => {
+  const handleSignin: SubmitHandler<FormData> = (formData) => {
     signInMutation.mutate(formData);
   };
 

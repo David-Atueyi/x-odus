@@ -1,4 +1,4 @@
-import { ActiveUser } from "./SignUpSections/ActiveUser";
+// import { ActiveUser } from "./SignUpSections/ActiveUser";
 import { SignUpFooter } from "./SignUpSections/SignUpFooter";
 import { SignUpForm } from "./SignUpSections/SignUpForm";
 import { SignUpHeader } from "./SignUpSections/SignUpHeader";

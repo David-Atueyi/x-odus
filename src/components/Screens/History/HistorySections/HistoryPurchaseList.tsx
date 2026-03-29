@@ -12,7 +12,7 @@ export const HistoryPurchaseList = ({
     <div
       className="space-y-4"
     >
-      {purchases.map((purchase, index) => (
+      {purchases.map((purchase) => (
         <div
           key={purchase.id}
           className="bg-white rounded-2xl p-6 border border-gray-200/50"
